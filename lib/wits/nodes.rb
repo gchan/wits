@@ -18,19 +18,16 @@ module Wits
 
     NODE_NAMES = NODES.invert.freeze
 
-    SHORT_CODES = {
-      BEN: 'BEN2201',
-      HWB: 'HWB2201',
-      HAY: 'HAY2201',
-      HLY: 'HLY2201',
-      INV: 'INV2201',
-      ISL: 'ISL2201',
-      OTA: 'OTA2201',
-      STK: 'STK2201',
-      SFD: 'SFD2201',
-      TUI: 'TUI1101',
-      WKM: 'WKM2201'
-    }.freeze
+    # {
+    #   BEN: 'BEN2201',
+    #   HWB: 'HWB2201'
+    #   ...
+    # }
+    SHORT_CODES = Hash[
+      NODES.keys.map { |node| node[0..2].to_sym }
+        .zip(NODES.keys.map(&:to_s))
+    ].freeze
+
 
     def nodes
       NODES

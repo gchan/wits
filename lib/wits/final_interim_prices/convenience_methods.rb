@@ -3,35 +3,34 @@ require 'wits/nodes'
 module Wits
   module FinalInterimPrices
     module ConvenienceMethods
-      Wits::Nodes.nodes.each do |node, name|
-        # def ben2201
-        define_method node.downcase do |*args|
-          prices(node, *args)
+
+      def self.extended(_base)
+        Wits::Nodes.nodes.each do |node, name|
+          # def ben2201
+          create_prices_method(node.downcase, node)
+
+          # def hay
+          create_prices_method(node.downcase[0..2], node)
+
+          # def halfway_bush
+          create_prices_method(name.downcase.tr(' ', '_'), node)
+
+
+          # def ben2201_prices
+          create_prices_method("#{node.downcase}_prices", node)
+
+          # def hay_prices
+          create_prices_method("#{node.downcase[0..2]}_prices", node)
+
+          # def halfway_bush_prices
+          create_prices_method("#{name.downcase.tr(' ', '_')}_prices", node)
         end
+      end
 
-        # def hay
-        define_method node.downcase[0..2] do |*args|
-          prices(node, *args)
-        end
+      private
 
-        # def halfway_bush
-        define_method name.downcase.tr(' ', '_') do |*args|
-          prices(node, *args)
-        end
-
-
-        # def ben2201_prices
-        define_method "#{node.downcase}_prices" do |*args|
-          prices(node, *args)
-        end
-
-        # def hay_prices
-        define_method "#{node.downcase[0..2]}_prices" do |*args|
-          prices(node, *args)
-        end
-
-        # def halfway_bush_prices
-        define_method "#{name.downcase.tr(' ', '_')}_prices" do |*args|
+      def self.create_prices_method(method_name, node)
+        define_method method_name do |*args|
           prices(node, *args)
         end
       end
