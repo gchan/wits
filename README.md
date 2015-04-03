@@ -45,6 +45,10 @@ Or install it yourself as:
 
     $ gem install wits
 
+
+## Supported Ruby versions
+wits supports MRI Ruby 1.9+ and the JRuby and Rubinius equivalent. The specific Ruby versions we build and test on can be found at [TravisCI](https://travis-ci.org/gchan/wits).
+
 ## Usage
 
 wits can retrieve [Final/Interim Prices](http://electricityinfo.co.nz/comitFta/ftaPage.pricesMain) and [5 Minute Prices](http://electricityinfo.co.nz/comitFta/five_min_prices.main) for a given node and date.
