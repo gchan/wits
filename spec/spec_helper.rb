@@ -24,6 +24,8 @@ VCR.configure do |config|
   config.hook_into :webmock
   config.default_cassette_options = { serialize_with: :json }
   config.configure_rspec_metadata!
+
+  config.ignore_hosts 'codeclimate.com'
 end
 
 RSpec.configure do |config|
