@@ -1,0 +1,64 @@
+{
+  "http_interactions": [
+    {
+      "request": {
+        "method": "get",
+        "uri": "http://www.electricityinfo.co.nz/comitFta/ftaPage.download?pDate=24/03/2015&pNode=BEN2201",
+        "body": {
+          "encoding": "US-ASCII",
+          "string": ""
+        },
+        "headers": {
+          "User-Agent": [
+            "Faraday v0.9.1"
+          ],
+          "Accept-Encoding": [
+            "gzip;q=1.0,deflate;q=0.6,identity;q=0.3"
+          ],
+          "Accept": [
+            "*/*"
+          ]
+        }
+      },
+      "response": {
+        "status": {
+          "code": 200,
+          "message": "OK"
+        },
+        "headers": {
+          "Date": [
+            "Fri, 27 Mar 2015 03:24:07 GMT"
+          ],
+          "Server": [
+            "Oracle-Application-Server-11g"
+          ],
+          "Content-Disposition": [
+            "filename=BEN2201_24032015.csv"
+          ],
+          "X-Db-Content-Length": [
+            "972"
+          ],
+          "Content-Length": [
+            "972"
+          ],
+          "Content-Type": [
+            "text/comma-separated-values"
+          ],
+          "Content-Language": [
+            "en"
+          ],
+          "X-Pad": [
+            "avoid browser bug"
+          ]
+        },
+        "body": {
+          "encoding": "UTF-8",
+          "string": "Final Prices for Node BEN2201 on 24/03/2015\r\nTime,Trading Period,Price\r\n12:00 am,1,79.57\r\n12:30 am,2,68.46\r\n01:00 am,3,68.35\r\n01:30 am,4,72.96\r\n02:00 am,5,68.57\r\n02:30 am,6,68.59\r\n03:00 am,7,68.61\r\n03:30 am,8,68.65\r\n04:00 am,9,68.65\r\n04:30 am,10,82.69\r\n05:00 am,11,77.65\r\n05:30 am,12,84.02\r\n06:00 am,13,83.86\r\n06:30 am,14,101.49\r\n07:00 am,15,82.3\r\n07:30 am,16,82.18\r\n08:00 am,17,81.33\r\n08:30 am,18,69.05\r\n09:00 am,19,69.28\r\n09:30 am,20,77.82\r\n10:00 am,21,77.81\r\n10:30 am,22,85.98\r\n11:00 am,23,82.37\r\n11:30 am,24,79.55\r\n12:00 pm,25,79.55\r\n12:30 pm,26,67.58\r\n01:00 pm,27,84.94\r\n01:30 pm,28,82.87\r\n02:00 pm,29,77.67\r\n02:30 pm,30,85.34\r\n03:00 pm,31,79.7\r\n03:30 pm,32,82.67\r\n04:00 pm,33,81.5\r\n04:30 pm,34,81.84\r\n05:00 pm,35,76.88\r\n05:30 pm,36,86.66\r\n06:00 pm,37,83.23\r\n06:30 pm,38,74.71\r\n07:00 pm,39,85.11\r\n07:30 pm,40,96.46\r\n08:00 pm,41,97.95\r\n08:30 pm,42,95.79\r\n09:00 pm,43,86.76\r\n09:30 pm,44,84.67\r\n10:00 pm,45,84.69\r\n10:30 pm,46,97.09\r\n11:00 pm,47,99.01\r\n11:30 pm,48,96.6\r\n"
+        },
+        "http_version": null
+      },
+      "recorded_at": "Wed, 25 Mar 2015 11:00:00 GMT"
+    }
+  ],
+  "recorded_with": "VCR 2.9.3"
+}
