@@ -1,4 +1,4 @@
-# wits [![Build Status](https://travis-ci.org/gchan/wits.svg?branch=master)](https://travis-ci.org/gchan/wits) [![Coverage Status](https://coveralls.io/repos/gchan/wits/badge.svg)](https://coveralls.io/r/gchan/wits)
+# wits [![Build Status](https://travis-ci.org/gchan/wits.svg?branch=master)](https://travis-ci.org/gchan/wits) [![Coverage Status](https://coveralls.io/repos/gchan/wits/badge.svg)](https://coveralls.io/r/gchan/wits) [![Dependency Status](https://gemnasium.com/gchan/wits.svg)](https://gemnasium.com/gchan/wits)
 
 Retrieve electricity data from [WITS Free to air](http://electricityinfo.co.nz/) via this friendly Ruby interface.
 
