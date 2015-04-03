@@ -1,4 +1,7 @@
-# wits [![Gem Version](https://badge.fury.io/rb/wits.svg)](http://badge.fury.io/rb/wits) [![Build Status](https://travis-ci.org/gchan/wits.svg?branch=master)](https://travis-ci.org/gchan/wits) [![Coverage Status](https://coveralls.io/repos/gchan/wits/badge.svg?branch=master)](https://coveralls.io/r/gchan/wits?branch=master) [![Dependency Status](https://gemnasium.com/gchan/wits.svg?branch=master)](https://gemnasium.com/gchan/wits)
+# wits
+[![Gem Version](https://badge.fury.io/rb/wits.svg)](http://badge.fury.io/rb/wits) [![Dependency Status](https://gemnasium.com/gchan/wits.svg?branch=master)](https://gemnasium.com/gchan/wits) ![License](https://img.shields.io/badge/license-MIT-blue.svg)
+
+[![Build Status](https://travis-ci.org/gchan/wits.svg?branch=master)](https://travis-ci.org/gchan/wits) [![Coverage Status](https://coveralls.io/repos/gchan/wits/badge.svg?branch=master)](https://coveralls.io/r/gchan/wits?branch=master) [![Code Climate](https://codeclimate.com/github/gchan/wits/badges/gpa.svg)](https://codeclimate.com/github/gchan/wits)
 
 Retrieve electricity data from [WITS Free to air](http://electricityinfo.co.nz/) via a friendly Ruby interface.
 

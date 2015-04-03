@@ -2,11 +2,16 @@ language: ruby
 cache: bundler
 
 rvm:
+  - ruby-head
   - 2.2.1
   - 2.1.5
   - 2.0.0
   - 1.9.3
+  - jruby-head
+  - jruby-9
   - jruby-19mode
   - rbx-2
-  - ruby-head
-  - jruby-head
+
+addons:
+  code_climate:
+    repo_token: 97a54878f464b101386de95de0863407520593d817bbaa8e6f851cdb70d30e97
