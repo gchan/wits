@@ -1,6 +1,6 @@
-# wits [![Build Status](https://travis-ci.org/gchan/wits.svg?branch=master)](https://travis-ci.org/gchan/wits) [![Coverage Status](https://coveralls.io/repos/gchan/wits/badge.svg)](https://coveralls.io/r/gchan/wits) [![Dependency Status](https://gemnasium.com/gchan/wits.svg)](https://gemnasium.com/gchan/wits)
+# wits [![Gem Version](https://badge.fury.io/rb/wits.svg)](http://badge.fury.io/rb/wits) [![Build Status](https://travis-ci.org/gchan/wits.svg?branch=master)](https://travis-ci.org/gchan/wits) [![Coverage Status](https://coveralls.io/repos/gchan/wits/badge.svg?branch=master)](https://coveralls.io/r/gchan/wits?branch=master) [![Dependency Status](https://gemnasium.com/gchan/wits.svg?branch=master)](https://gemnasium.com/gchan/wits)
 
-Retrieve electricity data from [WITS Free to air](http://electricityinfo.co.nz/) via this friendly Ruby interface.
+Retrieve electricity data from [WITS Free to air](http://electricityinfo.co.nz/) via a friendly Ruby interface.
 
 WITS (Wholesale and information trading system) currently does not provide a public API but data can be retrieved through web forms and file downloads.
 

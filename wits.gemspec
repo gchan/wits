@@ -10,9 +10,8 @@ Gem::Specification.new do |spec|
   spec.email         = ['developer.gordon@gmail.com']
 
   spec.summary       = %q{Retrieves electricity data from WITS Free to Air}
-  spec.description   = %q{This client library interfaces with WITS (Wholesale and
-    information trading system) to fetch New Zealand electricity data, preparing it
-    to be consumed by Ruby code.}
+  spec.description   = %q{A Ruby interface for WITS (Wholesale and
+    information trading system) to retrieve New Zealand electricity data.}
   spec.homepage      = 'https://www.github.com/gchan/wits'
   spec.license       = 'MIT'
 
