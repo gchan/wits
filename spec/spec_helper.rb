@@ -10,6 +10,9 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
 
 SimpleCov.start do
   add_filter '/spec/'
+  # Travis configures bundler to install dependencies in vendor
+  # https://github.com/colszowka/simplecov/issues/360
+  add_filter '/vendor/'
 end
 
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
