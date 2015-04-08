@@ -63,5 +63,9 @@ module Wits
     def nz_time_zone
       @nz_time_zone ||= TZInfo::Timezone.get('Pacific/Auckland')
     end
+
+    def nz_current_date
+      nz_time_zone.utc_to_local(Time.now.utc).to_date
+    end
   end
 end

@@ -16,7 +16,7 @@ module Wits
       base.extend ConvenienceMethods
     end
 
-    def prices(node, date = Date.today - 2)
+    def prices(node, date = nz_current_date - 2)
       node = format_node(node)
       date = format_date(date)
 
