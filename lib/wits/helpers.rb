@@ -23,9 +23,9 @@ module Wits
       end
     end
 
-    def format_price(date, time, trading_period, price)
+    def format_price(date, time, trading_period, price, repeated_time)
       {
-        time: parse_nz_time(date, time),
+        time: parse_nz_time(date, time, repeated_time),
         trading_period: trading_period.to_i,
         price: price.to_f
       }
@@ -42,14 +42,26 @@ module Wits
       }
     end
 
-    def parse_nz_time(date, time)
-      tz = TZInfo::Timezone.get('Pacific/Auckland')
+    def parse_nz_time(date, time, repeated_time)
+      date = Date.parse(date) unless date.is_a?(Date)
 
-      # Timezone information of the Time object is ignored by TZInfo
+      # TimezonePeriod for local Time (midnight)
+      tz_period = nz_time_zone.period_for_local(date.to_time)
+
+      # Assume we transitioned between NZST and NZDT if
+      # a time is repeated
+      dst = tz_period.dst?
+      dst = !dst if repeated_time
+
+      # Time zone information of the Time object is ignored by TZInfo
       time = Time.parse("#{date} #{time}")
 
       # Output in local time
-      tz.local_to_utc(time).localtime
+      nz_time_zone.local_to_utc(time, dst).localtime
+    end
+
+    def nz_time_zone
+      @nz_time_zone ||= TZInfo::Timezone.get('Pacific/Auckland')
     end
   end
 end

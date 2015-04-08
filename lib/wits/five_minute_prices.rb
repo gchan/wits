@@ -78,8 +78,13 @@ module Wits
     end
 
     def process_five_min_prices(csv)
+      times = []
+
       csv.map do |_node, date, trading_period, time, price, *_|
-        format_price(date, time, trading_period, price)
+        repeated_time = times.include?(time)
+        times << time
+
+        format_price(date, time, trading_period, price, repeated_time)
       end
     end
   end

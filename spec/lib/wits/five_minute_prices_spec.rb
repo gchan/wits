@@ -38,7 +38,7 @@ describe Wits::FiveMinutePrices do
 
       context 'averaged prices' do
         subject(:response) { Wits::FiveMinutePrices.five_minute_prices('BEN2201', date, :average) }
-        subject(:price)    { response[:prices][7] }
+        subject(:price)    { response[:prices][3] }
 
         it 'is able to make a live request' do
           expect(response).to be_a Hash
@@ -52,8 +52,8 @@ describe Wits::FiveMinutePrices do
           expect(response[:date]).to            eq date
           expect(response[:prices].length).to   be_within(2).of(48)
 
-          expect(price[:time]).to           eq parse_nz_time(Time.parse("#{date} 03:30"))
-          expect(price[:trading_period]).to eq 8
+          expect(price[:time]).to           eq parse_nz_time(Time.parse("#{date} 01:30"))
+          expect(price[:trading_period]).to eq 4
           expect(price[:price]).to          be_a(Float)
         end
       end

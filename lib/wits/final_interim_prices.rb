@@ -62,8 +62,13 @@ module Wits
     end
 
     def process_prices(csv, date)
+      times = []
+
       csv.map do |time, trading_period, price|
-        format_price(date, time, trading_period, price)
+        repeated_time = times.include?(time)
+        times << time
+
+        format_price(date, time, trading_period, price, repeated_time)
       end
     end
   end
