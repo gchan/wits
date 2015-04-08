@@ -166,6 +166,12 @@ For instance, if the NZT time for the first trading period is `2015-03-29 00:00:
 
 `Date` instances are always in the context of New Zealand.
 
+#### Known Issues
+
+There is no reliable method (without web scraping) of distinguishing interim half-hourly prices from final prices. Until the WITS CSV file correctly reports the price type, the half-hourly prices are always reported as 'Final'
+
+The CSV files for five minute prices and average five minute prices are missing some data rows on days when daylight savings ends. As a result, wits will return incomplete (and possibly invalid) data for dates when daylight savings ends (e.g. 5 April 2015).
+
 ## Possible Enhancements
 
 WITS also provides [Price Index](http://electricityinfo.co.nz/comitFta/price_index.summary) and [Demand](http://electricityinfo.co.nz/comitFta/ftaPage.demand) information which could be retrieved and delivered through a client library. Pull Requests are welcome!
