@@ -16,11 +16,11 @@ module Wits
       base.extend ConvenienceMethods
     end
 
-    def average_five_minute_prices(node, date = Date.today - 2)
+    def average_five_minute_prices(node, date = Date.today)
       five_minute_prices(node, date, :average)
     end
 
-    def five_minute_prices(node, date = Date.today - 2, type = :price )
+    def five_minute_prices(node, date = Date.today, type = :price )
       node = format_node(node)
       date = format_date(date)
       type = format_price_type(type)

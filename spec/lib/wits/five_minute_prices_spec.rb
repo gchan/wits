@@ -61,7 +61,7 @@ describe Wits::FiveMinutePrices do
 
     context 'stubbed request' do
       before :all do
-        Timecop.freeze(Date.parse('26/03/2015'))
+        Timecop.freeze(Date.parse('24/03/2015'))
       end
 
       after :all do
@@ -256,7 +256,7 @@ describe Wits::FiveMinutePrices do
 
     context 'when no date parameter is provided' do
       it "requests the prices for the day before yesterday" do
-        expected_date = Date.today - 2
+        expected_date = Date.today
         expect(Wits::FiveMinutePrices).to receive(:five_minute_prices).with('HAY', expected_date, :average)
 
         Wits::FiveMinutePrices.average_five_minute_prices('HAY')
@@ -334,7 +334,7 @@ describe Wits::FiveMinutePrices do
         methods.each do |method|
           describe ".#{method}" do
             it 'calls .five_minute_prices with the correct parameters (no date parameter)' do
-              expected_date = Date.parse('26/03/2015') - 2
+              expected_date = Date.parse('26/03/2015')
               expect(Wits::FiveMinutePrices).to receive(:five_minute_prices).with(node, expected_date, :average)
 
               Wits::FiveMinutePrices.send(method)
@@ -359,7 +359,7 @@ describe Wits::FiveMinutePrices do
         extend Wits::FiveMinutePrices
       end
 
-      Timecop.freeze(Date.parse('27/03/2015'))
+      Timecop.freeze(Date.parse('25/03/2015'))
     end
 
     after :all do

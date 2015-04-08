@@ -97,7 +97,7 @@ Wits.five_minute_prices('hay', Time.parse('29/03/2015 13:37'))
 Wits.five_minute_prices('HAY2201', Date.parse('29/03/2015'))
 ```
 
-If no date-like argument is provided, data for the day before yesterday will be retrieved.
+If no date-like argument is provided, data for today's date will be retrieved.
 
 There are convenient methods for known nodes. Use `Wits::Nodes.nodes` to see a list of nodes this library is aware of.
 
@@ -128,6 +128,8 @@ There is also a method to retrieve average prices without passing through an `:a
 Wits.average_five_minute_prices('hay2201')
 Wits.average_five_minute_prices('HAY', '29/03/2015')
 ```
+
+If no date-like argument is provided, data for today's date will be retrieved.
 
 Again there are convenient methods for known nodes. The `:average` argument is not required.
 
