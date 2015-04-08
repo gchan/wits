@@ -75,6 +75,36 @@ describe Wits::FinalInterimPrices do
         end
       end
 
+      it 'handles daylight savings transitions' do
+        VCR.use_cassette("BEN2201_05-04-2015") do
+          date     = Date.parse('05/04/2015')
+          response = Wits::FinalInterimPrices.prices('BEN', date)
+          prices   = response[:prices]
+          price    = prices.first
+
+          expect(response[:node_code]).to       eq 'BEN2201'
+          expect(response[:node_short_code]).to eq 'BEN'
+          expect(response[:node_name]).to       eq 'Benmore'
+          expect(response[:price_type]).to      eq 'Final'
+          expect(response[:date]).to            eq date
+          expect(response[:prices].length).to   eq 50
+
+          expected_trading_periods = (1..50).to_a
+          # Extracted from VCR Cassette
+          expected_prices = [85.0, 84.33, 88.74, 99.83, 88.97, 85.0, 82.89, 81.73, 85.0, 85.0,
+            85.0, 73.12, 80.3, 84.18, 81.88, 85.0, 96.67, 91.13, 93.84, 97.16, 98.99, 80.0, 62.03,
+            77.29, 60.44, 63.27, 63.1, 63.31, 64.16, 64.72, 60.0, 60.0, 60.0, 60.0, 60.3, 64.6,
+            66.0, 77.24, 91.12, 101.65, 85.69, 66.26, 66.0, 70.69, 70.17, 66.0, 66.0, 66.0, 66.0, 60.0]
+          expected_times = (1..50).map do |period|
+            parse_nz_time(Time.parse('05/04/2015')) + 60 * 30 * (period - 1)
+          end
+
+          expect(prices.map{ |price| price[:trading_period] }).to eq expected_trading_periods
+          expect(prices.map{ |price| price[:price] }).to          eq expected_prices
+          expect(prices.map{ |price| price[:time] }).to           eq expected_times
+        end
+      end
+
       context 'when no date parameter is provided' do
         it "requests the prices for the day before yesterday" do
           VCR.use_cassette("BEN2201_24-03-2015") do
