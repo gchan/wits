@@ -15,7 +15,7 @@ Gem::Specification.new do |spec|
   spec.homepage      = 'https://www.github.com/gchan/wits'
   spec.license       = 'MIT'
 
-  spec.files         = Dir['lib/**/*.rb']
+  spec.files         = Dir['lib/**/*.rb'] + %w(CHANGELOG.md LICENSE.txt README.md wits.gemspec)
   spec.bindir        = 'bin'
   spec.require_paths = ['lib']
   spec.platform      = Gem::Platform::RUBY
