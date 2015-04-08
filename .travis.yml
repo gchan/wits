@@ -12,6 +12,11 @@ rvm:
   - jruby-19mode
   - rbx-2
 
+matrix:
+  allow_failures:
+    - rvm: ruby-head
+    - rvm: jruby-head
+
 addons:
   code_climate:
     repo_token: 97a54878f464b101386de95de0863407520593d817bbaa8e6f851cdb70d30e97
