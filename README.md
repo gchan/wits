@@ -91,13 +91,13 @@ Wits::FinalInterimPrices.benmore_prices
 Five minute electricity prices can be retrieved in a similar fashion:
 
 ```ruby
-Wits.five_minute_prices('hay2201') # Defaults to the day before yesterday
+Wits.five_minute_prices('hay2201') # Defaults to NZ's current date
 Wits.five_minute_prices('HAY', '29/03/2015')
 Wits.five_minute_prices('hay', Time.parse('29/03/2015 13:37'))
 Wits.five_minute_prices('HAY2201', Date.parse('29/03/2015'))
 ```
 
-If no date-like argument is provided, data for today's date will be retrieved.
+If no date-like argument is provided, data for New Zealand's current date will be retrieved.
 
 There are convenient methods for known nodes. Use `Wits::Nodes.nodes` to see a list of nodes this library is aware of.
 
