@@ -1,3 +1,7 @@
+1.0.0 / 2015-04-19
+------
+Official 1.0.0 release (no changes)
+
 0.3.0 / 2015-04-09
 ------
 * Changed the default date to be NZ's current date for five minute prices and averaged five minute prices.
