@@ -135,21 +135,21 @@ describe Wits::FinalInterimPrices do
       end
 
       it 'accepts a date String object' do
-        VCR.use_cassette("BEN2201_25-03-2015") do
+        VCR.use_cassette('BEN2201_25-03-2015') do
           date = '25/03/2015'
           Wits::FinalInterimPrices.prices('ben2201', date)
         end
       end
 
       it 'accepts a Date-like object' do
-        VCR.use_cassette("BEN2201_25-03-2015") do
+        VCR.use_cassette('BEN2201_25-03-2015') do
           date = Date.parse('25/03/2015')
           Wits::FinalInterimPrices.prices('ben2201', date)
         end
       end
 
       it 'accepts a Time-like object' do
-        VCR.use_cassette("BEN2201_25-03-2015") do
+        VCR.use_cassette('BEN2201_25-03-2015') do
           time = Time.parse('25/03/2015')
           Wits::FinalInterimPrices.prices('BEN', time)
         end
@@ -195,7 +195,7 @@ describe Wits::FinalInterimPrices do
         node.downcase.slice(0, 3),
         name.gsub(' ', '_').downcase
       ]
-      methods.concat methods.map{ |method| "#{method}_prices".to_sym }
+      methods.concat methods.map { |method| "#{method}_prices".to_sym }
 
       [node, methods]
     end

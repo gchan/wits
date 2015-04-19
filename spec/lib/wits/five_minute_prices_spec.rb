@@ -181,21 +181,21 @@ describe Wits::FiveMinutePrices do
       end
 
       it 'accepts a date String object' do
-        VCR.use_cassette("BEN2201_5min_25-03-2015") do
+        VCR.use_cassette('BEN2201_5min_25-03-2015') do
           date = '25/03/2015'
           Wits::FiveMinutePrices.five_minute_prices('ben2201', date)
         end
       end
 
       it 'accepts a Date-like object' do
-        VCR.use_cassette("BEN2201_5min_25-03-2015") do
+        VCR.use_cassette('BEN2201_5min_25-03-2015') do
           date = Date.parse('25/03/2015')
           Wits::FiveMinutePrices.five_minute_prices('ben2201', date)
         end
       end
 
       it 'accepts a Time-like object' do
-        VCR.use_cassette("BEN2201_5min_25-03-2015") do
+        VCR.use_cassette('BEN2201_5min_25-03-2015') do
           time = Time.parse('25/03/2015')
           Wits::FiveMinutePrices.five_minute_prices('BEN', time)
         end
@@ -255,7 +255,7 @@ describe Wits::FiveMinutePrices do
     end
 
     context 'when no date parameter is provided' do
-      it "requests the prices for the day before yesterday" do
+      it 'requests the prices for the day before yesterday' do
         expected_date = Date.today
         expect(Wits::FiveMinutePrices).to receive(:five_minute_prices).with('HAY', expected_date, :average)
 
@@ -375,11 +375,11 @@ describe Wits::FiveMinutePrices do
       end
     end
 
-    it "makes the .five_minute_prices available on the extending Class or Module", :vcr do
+    it 'makes the .five_minute_prices available on the extending Class or Module', :vcr do
       expect(MyClass.five_minute_prices('BEN')).to eq Wits::FiveMinutePrices.five_minute_prices('BEN')
     end
 
-    it "makes the .average_five_min_prices available on the extending Class or Module", :vcr do
+    it 'makes the .average_five_min_prices available on the extending Class or Module', :vcr do
       expect(MyClass.average_five_minute_prices('BEN')).to eq Wits::FiveMinutePrices.average_five_minute_prices('BEN')
     end
   end

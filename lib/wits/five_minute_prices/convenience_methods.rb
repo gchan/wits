@@ -4,7 +4,7 @@ module Wits
   module FiveMinutePrices
     module ConvenienceMethods
 
-      def self.extended(base)
+      def self.extended(_base)
         Wits::Nodes.nodes.each do |node, name|
           # def ben2201_five_minute_prices
           create_five_min_method(node.downcase, node)

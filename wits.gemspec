@@ -9,9 +9,9 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Gordon Chan']
   spec.email         = ['developer.gordon@gmail.com']
 
-  spec.summary       = %q{Retrieves electricity data from WITS Free to Air}
-  spec.description   = %q{A Ruby interface for WITS (Wholesale and
-    information trading system) to retrieve New Zealand electricity data.}
+  spec.summary       = 'Retrieves electricity data from WITS Free to Air'
+  spec.description   = 'A Ruby interface for WITS (Wholesale and
+    information trading system) to retrieve New Zealand electricity data.'
   spec.homepage      = 'https://www.github.com/gchan/wits'
   spec.license       = 'MIT'
 

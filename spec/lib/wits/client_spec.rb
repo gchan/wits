@@ -21,7 +21,7 @@ describe Wits::Client do
   describe '.get' do
     it 'delegates to Faraday::Connection' do
       args  = [:blah]
-      block = Proc.new {}
+      block = proc {}
 
       expect(subject.client).to receive(:get).with(args, &block)
 
@@ -46,7 +46,7 @@ describe Wits::Client do
   describe '.get_csv' do
     it 'delegates to .get' do
       args  = [:blah]
-      block = Proc.new {}
+      block = proc {}
       response = double('reponse', body: 'a' * 300)
 
       expect(subject).to receive(:get).with(args, &block).and_return(response)

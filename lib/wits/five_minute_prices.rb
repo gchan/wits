@@ -20,7 +20,7 @@ module Wits
       five_minute_prices(node, date, :average)
     end
 
-    def five_minute_prices(node, date = nz_current_date, type = :price )
+    def five_minute_prices(node, date = nz_current_date, type = :price)
       node = format_node(node)
       date = format_date(date)
       type = format_price_type(type)

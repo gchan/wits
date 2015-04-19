@@ -10,7 +10,7 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
 
 # No JRuby support for SimpleCov
 # https://github.com/metricfu/metric_fu/commit/2248706
-if !defined?(JRUBY_VERSION)
+unless defined?(JRUBY_VERSION)
   SimpleCov.start do
     add_filter '/spec/'
     # Travis configures bundler to install dependencies in vendor
