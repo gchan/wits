@@ -1,4 +1,4 @@
-1.0.1 / 2015-12-16
+1.0.1 / 2015-12-18
 ------
 * Fix issue with 400..600 responses not resulting in an Error being raised by Faraday. Resolved by using the `Faraday::Response::RaiseError` middleware.
 
