@@ -29,17 +29,23 @@ describe Wits::Client do
     end
 
     errors = %w(
-      ConnectionFailed ResourceNotFound TimeoutError ClientError
+      ConnectionFailed ResourceNotFound ClientError
     )
 
     errors.each do |error|
-      it "Wits::Error::#{error} is raised on Faraday::#{error} error" do
-        allow(subject.client).to receive(:get).and_raise(Faraday.const_get(error), 'message')
-
+      it "Wits::Error::#{error} is raised on Faraday::#{error} error", :vcr do
         expect {
           subject.get
         }.to raise_error(Wits::Error.const_get(error))
       end
+    end
+
+    it "Wits::Error::TimeoutError is raised on Faraday::TimeoutError error" do
+      allow_any_instance_of(Net::HTTP).to receive(:get).and_raise(Timeout::Error)
+
+      expect {
+        subject.get
+      }.to raise_error(Wits::Error::TimeoutError)
     end
   end
 

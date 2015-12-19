@@ -21,6 +21,7 @@ end
 
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 require 'wits'
+require 'pry'
 require 'vcr'
 require 'timecop'
 require 'support/request_helpers'

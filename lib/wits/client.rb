@@ -21,7 +21,10 @@ module Wits
     end
 
     def self.client
-      @client ||= Faraday.new(url: 'http://www.electricityinfo.co.nz')
+      @client ||= Faraday.new(url: 'http://www.electricityinfo.co.nz') do |connection|
+        connection.adapter Faraday.default_adapter
+        connection.use Faraday::Response::RaiseError
+      end
     end
 
     private
