@@ -3,7 +3,7 @@
     {
       "request": {
         "method": "get",
-        "uri": "http://www.electricityinfo.co.nz/comitFta/ftaPage.download?pDate=25/03/2015&pNode=BEN2201",
+        "uri": "https://www.electricityinfo.co.nz/comitFta/ftaPage.download?pDate=25/03/2015&pNode=BEN2201",
         "body": {
           "encoding": "US-ASCII",
           "string": ""

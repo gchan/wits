@@ -3,7 +3,7 @@
     {
       "request": {
         "method": "get",
-        "uri": "http://www.electricityinfo.co.nz/comitFta/five_min_prices.download?INchoice=SEL&INdate=24/03/2015&INgip=BEN2201&INperiodfrom=1&INperiodto=50&INtype=Average",
+        "uri": "https://www.electricityinfo.co.nz/comitFta/five_min_prices.download?INchoice=SEL&INdate=24/03/2015&INgip=BEN2201&INperiodfrom=1&INperiodto=50&INtype=Average",
         "body": {
           "encoding": "US-ASCII",
           "string": ""

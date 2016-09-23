@@ -3,7 +3,7 @@
     {
       "request": {
         "method": "get",
-        "uri": "http://www.electricityinfo.co.nz/comitFta/ftaPage.download?pDate=31/03/2015&pNode=BEN2201",
+        "uri": "https://www.electricityinfo.co.nz/comitFta/ftaPage.download?pDate=31/03/2015&pNode=BEN2201",
         "body": {
           "encoding": "US-ASCII",
           "string": ""
@@ -62,7 +62,7 @@
     {
       "request": {
         "method": "get",
-        "uri": "http://www.electricityinfo.co.nz/comitFta/ftaPage.download?pDate=31/03/2015&pNode=BEN2201",
+        "uri": "https://www.electricityinfo.co.nz/comitFta/ftaPage.download?pDate=31/03/2015&pNode=BEN2201",
         "body": {
           "encoding": "US-ASCII",
           "string": ""
@@ -121,7 +121,7 @@
     {
       "request": {
         "method": "get",
-        "uri": "http://www.electricityinfo.co.nz/comitFta/ftaPage.download?pDate=31/03/2015&pNode=HLY2201",
+        "uri": "https://www.electricityinfo.co.nz/comitFta/ftaPage.download?pDate=31/03/2015&pNode=HLY2201",
         "body": {
           "encoding": "US-ASCII",
           "string": ""
@@ -180,7 +180,7 @@
     {
       "request": {
         "method": "get",
-        "uri": "http://www.electricityinfo.co.nz/comitFta/ftaPage.download?pDate=31/03/2015&pNode=HLY2201",
+        "uri": "https://www.electricityinfo.co.nz/comitFta/ftaPage.download?pDate=31/03/2015&pNode=HLY2201",
         "body": {
           "encoding": "US-ASCII",
           "string": ""
@@ -239,7 +239,7 @@
     {
       "request": {
         "method": "get",
-        "uri": "http://www.electricityinfo.co.nz/comitFta/ftaPage.download?pDate=31/03/2015&pNode=HAY2201",
+        "uri": "https://www.electricityinfo.co.nz/comitFta/ftaPage.download?pDate=31/03/2015&pNode=HAY2201",
         "body": {
           "encoding": "US-ASCII",
           "string": ""
@@ -298,7 +298,7 @@
     {
       "request": {
         "method": "get",
-        "uri": "http://www.electricityinfo.co.nz/comitFta/ftaPage.download?pDate=31/03/2015&pNode=HAY2201",
+        "uri": "https://www.electricityinfo.co.nz/comitFta/ftaPage.download?pDate=31/03/2015&pNode=HAY2201",
         "body": {
           "encoding": "US-ASCII",
           "string": ""
@@ -357,7 +357,7 @@
     {
       "request": {
         "method": "get",
-        "uri": "http://www.electricityinfo.co.nz/comitFta/ftaPage.download?pDate=31/03/2015&pNode=HWB2201",
+        "uri": "https://www.electricityinfo.co.nz/comitFta/ftaPage.download?pDate=31/03/2015&pNode=HWB2201",
         "body": {
           "encoding": "US-ASCII",
           "string": ""
@@ -416,7 +416,7 @@
     {
       "request": {
         "method": "get",
-        "uri": "http://www.electricityinfo.co.nz/comitFta/ftaPage.download?pDate=31/03/2015&pNode=HWB2201",
+        "uri": "https://www.electricityinfo.co.nz/comitFta/ftaPage.download?pDate=31/03/2015&pNode=HWB2201",
         "body": {
           "encoding": "US-ASCII",
           "string": ""
@@ -475,7 +475,7 @@
     {
       "request": {
         "method": "get",
-        "uri": "http://www.electricityinfo.co.nz/comitFta/ftaPage.download?pDate=31/03/2015&pNode=HLY2201",
+        "uri": "https://www.electricityinfo.co.nz/comitFta/ftaPage.download?pDate=31/03/2015&pNode=HLY2201",
         "body": {
           "encoding": "US-ASCII",
           "string": ""
@@ -534,7 +534,7 @@
     {
       "request": {
         "method": "get",
-        "uri": "http://www.electricityinfo.co.nz/comitFta/ftaPage.download?pDate=31/03/2015&pNode=HLY2201",
+        "uri": "https://www.electricityinfo.co.nz/comitFta/ftaPage.download?pDate=31/03/2015&pNode=HLY2201",
         "body": {
           "encoding": "US-ASCII",
           "string": ""
@@ -593,7 +593,7 @@
     {
       "request": {
         "method": "get",
-        "uri": "http://www.electricityinfo.co.nz/comitFta/ftaPage.download?pDate=31/03/2015&pNode=HAY2201",
+        "uri": "https://www.electricityinfo.co.nz/comitFta/ftaPage.download?pDate=31/03/2015&pNode=HAY2201",
         "body": {
           "encoding": "US-ASCII",
           "string": ""
@@ -652,7 +652,7 @@
     {
       "request": {
         "method": "get",
-        "uri": "http://www.electricityinfo.co.nz/comitFta/ftaPage.download?pDate=31/03/2015&pNode=HAY2201",
+        "uri": "https://www.electricityinfo.co.nz/comitFta/ftaPage.download?pDate=31/03/2015&pNode=HAY2201",
         "body": {
           "encoding": "US-ASCII",
           "string": ""
@@ -711,7 +711,7 @@
     {
       "request": {
         "method": "get",
-        "uri": "http://www.electricityinfo.co.nz/comitFta/ftaPage.download?pDate=31/03/2015&pNode=HWB2201",
+        "uri": "https://www.electricityinfo.co.nz/comitFta/ftaPage.download?pDate=31/03/2015&pNode=HWB2201",
         "body": {
           "encoding": "US-ASCII",
           "string": ""
@@ -770,7 +770,7 @@
     {
       "request": {
         "method": "get",
-        "uri": "http://www.electricityinfo.co.nz/comitFta/ftaPage.download?pDate=31/03/2015&pNode=HWB2201",
+        "uri": "https://www.electricityinfo.co.nz/comitFta/ftaPage.download?pDate=31/03/2015&pNode=HWB2201",
         "body": {
           "encoding": "US-ASCII",
           "string": ""

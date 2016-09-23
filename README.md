@@ -3,7 +3,7 @@
 
 [![Build Status](https://travis-ci.org/gchan/wits.svg?branch=master)](https://travis-ci.org/gchan/wits) [![Coverage Status](https://coveralls.io/repos/gchan/wits/badge.svg?branch=master)](https://coveralls.io/r/gchan/wits?branch=master) [![Code Climate](https://codeclimate.com/github/gchan/wits/badges/gpa.svg)](https://codeclimate.com/github/gchan/wits)
 
-Retrieve electricity data from [WITS Free to air](http://electricityinfo.co.nz/) via a friendly Ruby interface.
+Retrieve electricity data from [WITS Free to air](https://electricityinfo.co.nz/) via a friendly Ruby interface.
 
 WITS (Wholesale and information trading system) currently does not provide a public API but data can be retrieved through web forms and file downloads.
 
@@ -51,7 +51,7 @@ wits supports MRI Ruby 1.9+ and the JRuby and Rubinius equivalent. The specific 
 
 ## Usage
 
-wits can retrieve [Final/Interim Prices](http://electricityinfo.co.nz/comitFta/ftaPage.pricesMain) and [5 Minute Prices](http://electricityinfo.co.nz/comitFta/five_min_prices.main) for a given node and date.
+wits can retrieve [Final/Interim Prices](https://electricityinfo.co.nz/comitFta/ftaPage.pricesMain) and [5 Minute Prices](https://electricityinfo.co.nz/comitFta/five_min_prices.main) for a given node and date.
 
 #### Final/Interim Prices
 Half-hourly final/interim prices can be retrieved in the following ways:
@@ -174,7 +174,7 @@ The CSV files for five minute prices and average five minute prices are missing 
 
 ## Possible Enhancements
 
-WITS also provides [Price Index](http://electricityinfo.co.nz/comitFta/price_index.summary) and [Demand](http://electricityinfo.co.nz/comitFta/ftaPage.demand) information which could be retrieved and delivered through a client library. Pull Requests are welcome!
+WITS also provides [Price Index](https://electricityinfo.co.nz/comitFta/price_index.summary) and [Demand](https://electricityinfo.co.nz/comitFta/ftaPage.demand) information which could be retrieved and delivered through a client library. Pull Requests are welcome!
 
 ## Development
 

@@ -3,7 +3,7 @@
     {
       "request": {
         "method": "get",
-        "uri": "http://www.electricityinfo.co.nz/comitFta/five_min_prices.download?INchoice=SEL&INdate=31/03/2015&INgip=BEN2201&INperiodfrom=1&INperiodto=50&INtype=Average",
+        "uri": "https://www.electricityinfo.co.nz/comitFta/five_min_prices.download?INchoice=SEL&INdate=31/03/2015&INgip=BEN2201&INperiodfrom=1&INperiodto=50&INtype=Average",
         "body": {
           "encoding": "US-ASCII",
           "string": ""
@@ -59,7 +59,7 @@
     {
       "request": {
         "method": "get",
-        "uri": "http://www.electricityinfo.co.nz/comitFta/five_min_prices.download?INchoice=SEL&INdate=31/03/2015&INgip=BEN2201&INperiodfrom=1&INperiodto=50&INtype=Average",
+        "uri": "https://www.electricityinfo.co.nz/comitFta/five_min_prices.download?INchoice=SEL&INdate=31/03/2015&INgip=BEN2201&INperiodfrom=1&INperiodto=50&INtype=Average",
         "body": {
           "encoding": "US-ASCII",
           "string": ""
@@ -115,7 +115,7 @@
     {
       "request": {
         "method": "get",
-        "uri": "http://www.electricityinfo.co.nz/comitFta/five_min_prices.download?INchoice=SEL&INdate=31/03/2015&INgip=BEN2201&INperiodfrom=1&INperiodto=50&INtype=Price",
+        "uri": "https://www.electricityinfo.co.nz/comitFta/five_min_prices.download?INchoice=SEL&INdate=31/03/2015&INgip=BEN2201&INperiodfrom=1&INperiodto=50&INtype=Price",
         "body": {
           "encoding": "US-ASCII",
           "string": ""
@@ -171,7 +171,7 @@
     {
       "request": {
         "method": "get",
-        "uri": "http://www.electricityinfo.co.nz/comitFta/five_min_prices.download?INchoice=SEL&INdate=31/03/2015&INgip=BEN2201&INperiodfrom=1&INperiodto=50&INtype=Price",
+        "uri": "https://www.electricityinfo.co.nz/comitFta/five_min_prices.download?INchoice=SEL&INdate=31/03/2015&INgip=BEN2201&INperiodfrom=1&INperiodto=50&INtype=Price",
         "body": {
           "encoding": "US-ASCII",
           "string": ""
@@ -227,7 +227,7 @@
     {
       "request": {
         "method": "get",
-        "uri": "http://www.electricityinfo.co.nz/comitFta/five_min_prices.download?INchoice=SEL&INdate=31/03/2015&INgip=HLY2201&INperiodfrom=1&INperiodto=50&INtype=Price",
+        "uri": "https://www.electricityinfo.co.nz/comitFta/five_min_prices.download?INchoice=SEL&INdate=31/03/2015&INgip=HLY2201&INperiodfrom=1&INperiodto=50&INtype=Price",
         "body": {
           "encoding": "US-ASCII",
           "string": ""
@@ -283,7 +283,7 @@
     {
       "request": {
         "method": "get",
-        "uri": "http://www.electricityinfo.co.nz/comitFta/five_min_prices.download?INchoice=SEL&INdate=31/03/2015&INgip=HLY2201&INperiodfrom=1&INperiodto=50&INtype=Price",
+        "uri": "https://www.electricityinfo.co.nz/comitFta/five_min_prices.download?INchoice=SEL&INdate=31/03/2015&INgip=HLY2201&INperiodfrom=1&INperiodto=50&INtype=Price",
         "body": {
           "encoding": "US-ASCII",
           "string": ""
@@ -339,7 +339,7 @@
     {
       "request": {
         "method": "get",
-        "uri": "http://www.electricityinfo.co.nz/comitFta/five_min_prices.download?INchoice=SEL&INdate=31/03/2015&INgip=HAY2201&INperiodfrom=1&INperiodto=50&INtype=Price",
+        "uri": "https://www.electricityinfo.co.nz/comitFta/five_min_prices.download?INchoice=SEL&INdate=31/03/2015&INgip=HAY2201&INperiodfrom=1&INperiodto=50&INtype=Price",
         "body": {
           "encoding": "US-ASCII",
           "string": ""
@@ -395,7 +395,7 @@
     {
       "request": {
         "method": "get",
-        "uri": "http://www.electricityinfo.co.nz/comitFta/five_min_prices.download?INchoice=SEL&INdate=31/03/2015&INgip=HAY2201&INperiodfrom=1&INperiodto=50&INtype=Price",
+        "uri": "https://www.electricityinfo.co.nz/comitFta/five_min_prices.download?INchoice=SEL&INdate=31/03/2015&INgip=HAY2201&INperiodfrom=1&INperiodto=50&INtype=Price",
         "body": {
           "encoding": "US-ASCII",
           "string": ""
@@ -451,7 +451,7 @@
     {
       "request": {
         "method": "get",
-        "uri": "http://www.electricityinfo.co.nz/comitFta/five_min_prices.download?INchoice=SEL&INdate=31/03/2015&INgip=HWB2201&INperiodfrom=1&INperiodto=50&INtype=Price",
+        "uri": "https://www.electricityinfo.co.nz/comitFta/five_min_prices.download?INchoice=SEL&INdate=31/03/2015&INgip=HWB2201&INperiodfrom=1&INperiodto=50&INtype=Price",
         "body": {
           "encoding": "US-ASCII",
           "string": ""
@@ -507,7 +507,7 @@
     {
       "request": {
         "method": "get",
-        "uri": "http://www.electricityinfo.co.nz/comitFta/five_min_prices.download?INchoice=SEL&INdate=31/03/2015&INgip=HWB2201&INperiodfrom=1&INperiodto=50&INtype=Price",
+        "uri": "https://www.electricityinfo.co.nz/comitFta/five_min_prices.download?INchoice=SEL&INdate=31/03/2015&INgip=HWB2201&INperiodfrom=1&INperiodto=50&INtype=Price",
         "body": {
           "encoding": "US-ASCII",
           "string": ""
@@ -563,7 +563,7 @@
     {
       "request": {
         "method": "get",
-        "uri": "http://www.electricityinfo.co.nz/comitFta/five_min_prices.download?INchoice=SEL&INdate=31/03/2015&INgip=HLY2201&INperiodfrom=1&INperiodto=50&INtype=Average",
+        "uri": "https://www.electricityinfo.co.nz/comitFta/five_min_prices.download?INchoice=SEL&INdate=31/03/2015&INgip=HLY2201&INperiodfrom=1&INperiodto=50&INtype=Average",
         "body": {
           "encoding": "US-ASCII",
           "string": ""
@@ -619,7 +619,7 @@
     {
       "request": {
         "method": "get",
-        "uri": "http://www.electricityinfo.co.nz/comitFta/five_min_prices.download?INchoice=SEL&INdate=31/03/2015&INgip=HLY2201&INperiodfrom=1&INperiodto=50&INtype=Average",
+        "uri": "https://www.electricityinfo.co.nz/comitFta/five_min_prices.download?INchoice=SEL&INdate=31/03/2015&INgip=HLY2201&INperiodfrom=1&INperiodto=50&INtype=Average",
         "body": {
           "encoding": "US-ASCII",
           "string": ""
@@ -675,7 +675,7 @@
     {
       "request": {
         "method": "get",
-        "uri": "http://www.electricityinfo.co.nz/comitFta/five_min_prices.download?INchoice=SEL&INdate=31/03/2015&INgip=HAY2201&INperiodfrom=1&INperiodto=50&INtype=Average",
+        "uri": "https://www.electricityinfo.co.nz/comitFta/five_min_prices.download?INchoice=SEL&INdate=31/03/2015&INgip=HAY2201&INperiodfrom=1&INperiodto=50&INtype=Average",
         "body": {
           "encoding": "US-ASCII",
           "string": ""
@@ -731,7 +731,7 @@
     {
       "request": {
         "method": "get",
-        "uri": "http://www.electricityinfo.co.nz/comitFta/five_min_prices.download?INchoice=SEL&INdate=31/03/2015&INgip=HAY2201&INperiodfrom=1&INperiodto=50&INtype=Average",
+        "uri": "https://www.electricityinfo.co.nz/comitFta/five_min_prices.download?INchoice=SEL&INdate=31/03/2015&INgip=HAY2201&INperiodfrom=1&INperiodto=50&INtype=Average",
         "body": {
           "encoding": "US-ASCII",
           "string": ""
@@ -787,7 +787,7 @@
     {
       "request": {
         "method": "get",
-        "uri": "http://www.electricityinfo.co.nz/comitFta/five_min_prices.download?INchoice=SEL&INdate=31/03/2015&INgip=HWB2201&INperiodfrom=1&INperiodto=50&INtype=Average",
+        "uri": "https://www.electricityinfo.co.nz/comitFta/five_min_prices.download?INchoice=SEL&INdate=31/03/2015&INgip=HWB2201&INperiodfrom=1&INperiodto=50&INtype=Average",
         "body": {
           "encoding": "US-ASCII",
           "string": ""
@@ -843,7 +843,7 @@
     {
       "request": {
         "method": "get",
-        "uri": "http://www.electricityinfo.co.nz/comitFta/five_min_prices.download?INchoice=SEL&INdate=31/03/2015&INgip=HWB2201&INperiodfrom=1&INperiodto=50&INtype=Average",
+        "uri": "https://www.electricityinfo.co.nz/comitFta/five_min_prices.download?INchoice=SEL&INdate=31/03/2015&INgip=HWB2201&INperiodfrom=1&INperiodto=50&INtype=Average",
         "body": {
           "encoding": "US-ASCII",
           "string": ""
