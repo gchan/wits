@@ -38,4 +38,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'coveralls', '~> 0.8.0'
   spec.add_development_dependency 'codeclimate-test-reporter', '~> 0.4.7'
   spec.add_development_dependency 'tins', '~> 1.6.0'
+  spec.add_development_dependency 'listen', '~> 3.0.5'
 end
