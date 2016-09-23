@@ -1,3 +1,11 @@
+Unreleased
+------
+No changes
+
+1.0.2 / 2016-09-23
+------
+* Use HTTPS on electricityinfo.co.nz - Andrew Pett
+
 1.0.1 / 2015-12-18
 ------
 * Fix issue with 400..600 responses not resulting in an Error being raised by Faraday. Resolved by using the `Faraday::Response::RaiseError` middleware.
