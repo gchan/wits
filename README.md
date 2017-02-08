@@ -47,7 +47,7 @@ Or install it yourself as:
 
 
 ## Supported Ruby versions
-wits supports MRI Ruby 1.9+ and the JRuby equivalent. The specific Ruby versions we build and test on can be found at [TravisCI](https://travis-ci.org/gchan/wits).
+wits officially supports MRI Ruby 2.2+ and the JRuby equivalent. wits may work for older versions of Ruby however we no longer test against these unsupported versions. The specific Ruby versions we build and test on can be found at [TravisCI](https://travis-ci.org/gchan/wits).
 
 ## Usage
 

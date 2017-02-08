@@ -1,6 +1,6 @@
 Unreleased
 ------
-No changes
+* Dropping official support for Ruby versions 2.1 and below.
 
 1.0.2 / 2016-09-23
 ------
