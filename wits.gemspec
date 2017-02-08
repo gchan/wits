@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.name          = 'wits'
   spec.version       = Wits::VERSION
   spec.authors       = ['Gordon Chan']
-  spec.email         = ['developer.gordon@gmail.com']
+  spec.email         = ["developer.gordon+github@gmail.com"]
 
   spec.summary       = 'Retrieves electricity data from WITS Free to Air'
   spec.description   = 'A Ruby interface for WITS (Wholesale and
@@ -27,16 +27,16 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rake', '~> 10.0'
   spec.add_development_dependency 'pry', '~> 0.10.1'
 
-  spec.add_development_dependency 'guard-rspec', '~> 4.5.0'
-  spec.add_development_dependency 'rspec', '~> 3.2.0'
-  spec.add_development_dependency 'vcr', '~> 2.9.3'
-  spec.add_development_dependency 'webmock', '~> 1.21.0'
-  spec.add_development_dependency 'multi_json', '~> 1.11.0'
-  spec.add_development_dependency 'timecop', '~> 0.7.3'
-  spec.add_development_dependency 'simplecov', '~> 0.9.2'
-  spec.add_development_dependency 'rubocop', '~> 0.29.1'
-  spec.add_development_dependency 'coveralls', '~> 0.8.0'
-  spec.add_development_dependency 'codeclimate-test-reporter', '~> 0.4.7'
-  spec.add_development_dependency 'tins', '~> 1.6.0'
-  spec.add_development_dependency 'listen', '~> 3.0.5'
+  spec.add_development_dependency 'guard-rspec', '~> 4.7.3'
+  spec.add_development_dependency 'rspec', '~> 3.5.0'
+  spec.add_development_dependency 'vcr', '~> 3.0.3'
+  spec.add_development_dependency 'webmock', '~> 2.3.2'
+  spec.add_development_dependency 'multi_json', '~> 1.12.1'
+  spec.add_development_dependency 'timecop', '~> 0.8.1'
+  spec.add_development_dependency 'simplecov', '~> 0.12.0'
+  spec.add_development_dependency 'rubocop', '~> 0.47.1'
+  spec.add_development_dependency 'coveralls', '~> 0.8.19'
+  spec.add_development_dependency 'codeclimate-test-reporter', '~> 1.0.5'
+  spec.add_development_dependency 'tins', '~> 1.13.2'
+  spec.add_development_dependency 'listen', '~> 3.1.5'
 end
