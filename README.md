@@ -58,9 +58,15 @@ Half-hourly final/interim prices can be retrieved in the following ways:
 
 ```ruby
 Wits.prices('ben2201') # Defaults to the day before yesterday
+Wits.final_prices('ben2201')
 Wits.prices('BEN', '29/03/2015')
 Wits.prices('ben', Time.parse('29/03/2015 13:37'))
 Wits.prices('BEN2201', Date.parse('29/03/2015'))
+
+Wits.interim_prices('ben2201') # Defaults to the day before yesterday
+Wits.interim_prices('BEN', '29/03/2015')
+Wits.interim_prices('ben', Time.parse('29/03/2015 13:37'))
+Wits.interim_prices('BEN2201', Date.parse('29/03/2015'))
 ```
 
 If no date-like argument is provided, data for the day before yesterday will be retrieved.
@@ -71,9 +77,13 @@ There are convenient methods for known nodes. Use `Wits::Nodes.nodes` to see a l
 Wits.ben_prices
 Wits.benmore_prices('29/03/2015')
 Wits.ben2201_prices(Time.parse('29/03/2015 13:37'))
+
+Wits.ben_interim_prices
+Wits.benmore_interim_prices('29/03/2015')
+Wits.ben2201_interim_prices(Time.parse('29/03/2015 13:37'))
 ```
 
-For Final/Interim prices, there are shorter methods without the `_prices` suffix.
+For Final prices, there are shorter methods without the `_prices` suffix.
 
 ```ruby
 Wits.ben
@@ -168,7 +178,9 @@ For instance, if the NZT time for the first trading period is `2015-03-29 00:00:
 
 #### Known Issues
 
-There is no reliable method (without web scraping) of distinguishing interim half-hourly prices from final prices. Until the WITS CSV file correctly reports the price type, the half-hourly prices are always reported as 'Final'
+_This information is related to the old WITS site. It may no longer apply to the new WITS site._
+
+~~There is no reliable method (without web scraping) of distinguishing interim half-hourly prices from final prices. Until the WITS CSV file correctly reports the price type, the half-hourly prices are always reported as 'Final'~~ _Interim and final prices can now  be retrieved via their respective Ruby methods_
 
 The CSV files for five minute prices and average five minute prices are missing some data rows on days when daylight savings ends. As a result, wits will return incomplete (and possibly invalid) data for dates when daylight savings ends (e.g. 5 April 2015).
 

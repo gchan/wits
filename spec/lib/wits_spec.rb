@@ -23,7 +23,7 @@ describe Wits do
 
   describe 'extended methods' do
     before :all do
-      Timecop.freeze(Date.parse('02/04/2015'))
+      Timecop.freeze(Date.parse('26/02/2017'))
     end
 
     after :all do

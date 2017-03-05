@@ -14,7 +14,7 @@ describe Wits::Client do
     end
 
     it 'URL is set correctly' do
-      expect(subject.client.url_prefix.to_s).to eq 'https://www.electricityinfo.co.nz/'
+      expect(subject.client.url_prefix.to_s).to eq 'https://www2.electricityinfo.co.nz/'
     end
   end
 
@@ -53,7 +53,7 @@ describe Wits::Client do
     it 'delegates to .get' do
       args  = [:blah]
       block = proc {}
-      response = double('reponse', body: 'a' * 300)
+      response = double('reponse', body: "a,b,c\n" * 300)
 
       expect(subject).to receive(:get).with(args, &block).and_return(response)
 

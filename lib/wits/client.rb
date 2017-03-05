@@ -21,7 +21,7 @@ module Wits
     end
 
     def self.client
-      @client ||= Faraday.new(url: 'https://www.electricityinfo.co.nz') do |connection|
+      @client ||= Faraday.new(url: 'https://www2.electricityinfo.co.nz') do |connection|
         connection.adapter Faraday.default_adapter
         connection.use Faraday::Response::RaiseError
       end
@@ -29,26 +29,23 @@ module Wits
 
     private
 
-    # WITS is buggy and doesn't use status codes.
-    # This is the most reliable method of determining whether
-    # we actually have a meaningful CSV file
+    # Check if the CSV contains more than just the header
+    # or if the there is no CSV (i.e we received an HTML file)
     def self.check_for_data(response)
-      return unless response.body =~ /html/i ||
-                    response.body.length < 300
-
-      fail Wits::Error::ResourceNotFound
+      raise Wits::Error::ResourceNotFound if response.body.include?('html') ||
+                                             CSV.parse(response.body).size <= 1
     end
 
     def self.handle_error(error)
       case error
       when Faraday::ConnectionFailed
-        raise Wits::Error::ConnectionFailed.new error
+        raise Wits::Error::ConnectionFailed, error
       when Faraday::ResourceNotFound
-        raise Wits::Error::ResourceNotFound.new error
+        raise Wits::Error::ResourceNotFound, error
       when Faraday::TimeoutError
-        raise Wits::Error::TimeoutError.new error
+        raise Wits::Error::TimeoutError, error
       else # Faraday::ClientError
-        raise Wits::Error::ClientError.new error
+        raise Wits::Error::ClientError, error
       end
     end
   end

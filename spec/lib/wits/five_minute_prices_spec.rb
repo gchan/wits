@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe Wits::FiveMinutePrices do
-
   describe '.five_minute_prices' do
     context 'live request' do
       before :all do
@@ -28,7 +27,7 @@ describe Wits::FiveMinutePrices do
           expect(response[:node_name]).to       eq 'Benmore'
           expect(response[:price_type]).to      eq 'Five Minute'
           expect(response[:date]).to            eq date
-          expect(response[:prices].length).to   be_within(2*6).of(48*6)
+          expect(response[:prices].length).to   be_within(2 * 6).of(48 * 6)
 
           expect(price[:time]).to           eq parse_nz_time(Time.parse("#{date} 00:35"))
           expect(price[:trading_period]).to eq 2
@@ -61,7 +60,7 @@ describe Wits::FiveMinutePrices do
 
     context 'stubbed request' do
       before :all do
-        Timecop.freeze(Date.parse('24/03/2015'))
+        Timecop.freeze(Date.parse('28/02/2017'))
       end
 
       after :all do
@@ -70,8 +69,8 @@ describe Wits::FiveMinutePrices do
 
       context 'non-averaged prices' do
         it 'returns price information formatted correctly' do
-          VCR.use_cassette("BEN2201_5min_24-03-2015") do
-            date     = Date.parse('24/03/2015')
+          VCR.use_cassette('BEN2201_5min_27-02-2017') do
+            date     = Date.parse('27/02/2017')
             response = Wits::FiveMinutePrices.five_minute_prices('BEN', date)
             prices   = response[:prices]
             price    = prices.first
@@ -84,44 +83,42 @@ describe Wits::FiveMinutePrices do
             expect(response[:prices].length).to   eq 48 * 6
 
             expected_trading_periods = ((1..48).to_a * 6).sort
-            expected_times = (1..48*6).map do |period|
-              parse_nz_time(Time.parse("24/03/2015")) + 60 * 5 * (period - 1)
+            expected_times = (1..48 * 6).map do |period|
+              parse_nz_time(Time.parse('27/02/2017')) + 60 * 5 * (period - 1)
             end
             # Extracted from VCR Cassette
-            expected_prices = [86.12, 90.4, 96.7, 96.81, 96.79, 101.06, 97.07, 99.18, 127.82, 127.82,
-              135.05, 128.27, 86.31, 97.15, 97.15, 97.17, 98.48, 98.7, 83.52, 83.7, 83.91, 83.71, 98.54,
-              100.19, 69.59, 69.62, 79.81, 84.67, 84.69, 86.91, 84.22, 84.22, 86.6, 86.69, 86.83, 88.1,
-              86.19, 86.22, 90.55, 90.55, 102.35, 102.35, 86.22, 86.28, 90.61, 103.05, 100.13, 103.56,
-              95.38, 91.19, 91.19, 96.46, 91.19, 86.22, 86.22, 86.22, 85.12, 83.51, 84.98, 84.98, 102.35,
-              83.23, 90.18, 62.51, 83.42, 83.23, 83.23, 83.42, 86.66, 83.23, 77.33, 82.03, 86.25, 86.66,
-              86.25, 91.66, 86.66, 86.66, 79.52, 76.88, 76.67, 73.33, 78.22, 76.13, 87.39, 87.39, 81.54,
-              77.32, 81.51, 81.51, 81.99, 83.63, 81.51, 81.51, 81.52, 81.5, 83.63, 83.63, 83.63, 81.99,
-              81.12, 81.06, 80.27, 81.22, 80.99, 79.7, 79.7, 81.29, 86.69, 85.34, 85.34, 87.23, 85.34,
-              85.34, 81.37, 85.39, 77.9, 77.67, 77.67, 77.98, 79.6, 82.59, 82.87, 84.98, 85.12, 85.12,
-              88.93, 88.93, 88.93, 88.93, 84.94, 83.85, 67.58, 67.58, 67.58, 67.58, 67.58, 67.54, 69.39,
-              79.55, 79.55, 79.55, 79.55, 79.55, 79.55, 79.55, 79.55, 79.55, 79.55, 79.55, 79.55, 82.24,
-              96.55, 88.37, 88.41, 90.45, 85.98, 85.98, 86.12, 86.12, 86.12, 85.98, 76.66, 78.04, 77.81,
-              77.81, 86, 77.81, 67.63, 67.71, 77.82, 85.95, 86, 86, 67.92, 68.99, 69.27, 76.86, 69.39,
-              80.95, 67.59, 67.59, 67.73, 67.74, 69.06, 80.99, 81.08, 80.99, 81.18, 81.09, 81.09, 81.15,
-              82.12, 82.12, 82.12, 82.02, 82.02, 81.98, 105.71, 100.82, 100.2, 81.9, 66.83, 60.44, 149.52,
-              132.18, 101.43, 94.1, 82.44, 73.6, 104.51, 92.39, 83.87, 82.84, 77.6, 67.89, 101.05, 85.45,
-              83.99, 83.86, 77.78, 73.34, 83.73, 83.24, 80.16, 64, 77.77, 65.79, 83.04, 82.69, 82.69, 79.21,
-              79.89, 79.21, 68.74, 68.67, 68.67, 68.69, 68.69, 68.73, 68.73, 68.62, 68.69, 68.62, 68.69, 74.76,
-              68.6, 68.56, 68.61, 68.61, 68.68, 68.73, 68.52, 68.46, 68.5, 65.66, 68.64, 71.98, 65.66, 65.38,
-              68.6, 68.62, 68.65, 68.66, 68.69, 72.17, 72.13, 75.27, 75.36, 75.36, 65.82, 65.82, 67.36, 67.36,
-              68.32, 71.9, 67.48, 68.44, 68.44, 68.44, 68.53, 74.54, 68.43, 68.52, 79, 85.83, 90.49, 90.08].reverse
+            expected_prices = [49.63, 49.62, 37.77, 26.7, 26.28, 16.61, 49.8, 38.7, 38.7, 38.63, 38.62, 18.45,
+              50.2, 50.19, 49.91, 49.8, 38.7, 38.63, 49.81, 49.81, 49.8, 49.79, 48.66, 38.7, 38.61, 38.62, 38.61,
+              18.16, 17.62, 17.61, 17.6, 17.61, 17.61, 17.6, 17.61, 17.6, 17.61, 17.6, 17.62, 17.61, 17.34, 17.29,
+              17.32, 17.53, 17.61, 17.61, 17.62, 17.63, 15.81, 15.83, 15.83, 15.83, 15.93, 16.18, 13.04, 14.93,
+              15.52, 15.78, 15.92, 17.33, 17.94, 39.7, 49, 49.87, 50.26, 51.75, 17.02, 24.62, 24.64, 45.29, 47.7,
+              51.91, 10.27, 16.64, 23.6, 39.85, 45.55, 51.83, 16.65, 23.83, 44.53, 45.38, 53.82, 58.6, 22.03, 22.41,
+              41.81, 43.78, 51.98, 53.18, 39.95, 42.34, 44.02, 44.06, 44.08, 48.4, 54.03, 55.85, 54.1, 53.26, 52.57,
+              61.87, 68.28, 61.93, 58.91, 58.87, 58.88, 57.97, 56.72, 48.42, 47.36, 56.65, 57.02, 56.77, 48.46, 48.39,
+              48.39, 48.46, 48.46, 48.39, 49.32, 48.48, 48.46, 48.48, 48.48, 48.53, 50.08, 50.11, 50.16, 50.16, 50.16,
+              43.13, 47.18, 61.5, 61.5, 62.05, 61.5, 61.53, 61.37, 61.37, 61.37, 61.5, 61.36, 61.37, 61.37, 46.58,
+              43.08, 46.17, 41.29, 60.99, 59.09, 59.74, 59.76, 61.53, 62.73, 61.53, 61.51, 61.53, 62.72, 61.53, 39.94,
+              39.07, 61.51, 60.96, 60.15, 60.14, 59.91, 60.14, 59.9, 60.98, 61.66, 61.66, 61.66, 60.56, 54.21, 61.48,
+              61.51, 61.51, 61.51, 61.5, 61.5, 61.5, 61.5, 61.47, 63.77, 67.31, 66.63, 71.41, 72.64, 72.39, 72.75,
+              72.75, 72.8, 72.8, 72.37, 72.37, 72.38, 56.25, 58.35, 72.73, 72.8, 72.8, 72.8, 72.8, 67.52, 65.5, 65.51,
+              67.56, 70.62, 71.38, 66.3, 65.52, 65.52, 64.42, 64.42, 59.09, 56.87, 53.89, 53.89, 53.33, 53.33, 53.26,
+              55.57, 54.63, 54.63, 52.25, 52.25, 53.78, 58.67, 58.05, 55.92, 55.18, 54.79, 53.91, 53.84, 53.65, 53.59,
+              53.59, 53.59, 53.59, 54.64, 54.64, 54.09, 54.99, 58.33, 59.13, 63.04, 63.04, 62.93, 63, 61, 57.91, 59.12,
+              55.29, 54.37, 52.48, 51.77, 51.76, 53.77, 53.79, 52.91, 51.73, 50.58, 49.31, 53.89, 46.57, 43.84, 39.21,
+              38.5, 24.47, 47.6, 47.6, 44.78, 39.02, 27.45, 24.91, 47.33, 47.8, 46.11, 44.42, 43.41, 25.54, 46.08, 44.12,
+              42.74, 25.16, 25.07, 24.27]
 
-            expect(prices.map{ |price| price[:trading_period] }).to eq expected_trading_periods
-            expect(prices.map{ |price| price[:price] }).to          eq expected_prices
-            expect(prices.map{ |price| price[:time] }).to           eq expected_times
+            expect(prices.map { |price| price[:trading_period] }).to eq expected_trading_periods
+            expect(prices.map { |price| price[:price] }).to          eq expected_prices
+            expect(prices.map { |price| price[:time] }).to           eq expected_times
           end
         end
       end
 
       context 'averaged prices' do
         it 'returns price information formatted correctly' do
-          VCR.use_cassette("BEN2201_average_5min_24-03-2015") do
-            date     = Date.parse('24/03/2015')
+          VCR.use_cassette('BEN2201_average_5min_28-02-2017') do
+            date     = Date.parse('28/02/2017')
             response = Wits::FiveMinutePrices.five_minute_prices('BEN', date, :average)
             prices   = response[:prices]
             price    = prices.first
@@ -135,44 +132,44 @@ describe Wits::FiveMinutePrices do
 
             expected_trading_periods = (1..48).to_a
             expected_times = (1..48).map do |period|
-              parse_nz_time(Time.parse("24/03/2015")) + 60 * 30 * (period - 1)
+              parse_nz_time(Time.parse('28/02/2017')) + 60 * 30 * (period - 1)
             end
             # Extracted from VCR Cassette
-            expected_prices = [94.65, 119.2, 95.83, 88.93, 79.22, 86.11, 93.04, 94.98, 91.94,
-              85.17, 84.15, 82.65, 87.36, 76.79, 82.78, 81.94, 82.51, 80.53, 85.88, 79.66,
-              83.38, 87.42, 67.57, 77.86, 79.55, 87.6, 86.05, 79.02, 78.52, 72.23, 70.12,
-              81.1, 82.06, 85.98, 105.55, 84.85, 84.25, 75.78, 81.12, 68.7, 69.69, 68.63,
-              68.63, 67.6, 73.16, 67.76, 69.31, 80.39].reverse
+            expected_prices = [48.18, 48.76, 50.75, 49.39, 49.19, 48.74, 50.84, 49.79, 50.98,
+              50.83, 53.46, 50.52, 54.31, 62.01, 60.64, 70.89, 74.11, 70.65, 67.27, 61.26,
+              56.1, 65.05, 77.77, 79.42, 80.29, 76.77, 80.98, 57.32, 53.46, 52.35, 55.42,
+              55.8, 54.44, 63.77, 71.94, 68.55, 58.35, 58.85, 58.5, 57.77, 58.43, 63.4,
+              67.95, 54.94, 53.08, 55.26, 52.45, 55.41]
 
-            expect(prices.map{ |price| price[:trading_period] }).to eq expected_trading_periods
-            expect(prices.map{ |price| price[:price] }).to          eq expected_prices
-            expect(prices.map{ |price| price[:time] }).to           eq expected_times
+            expect(prices.map { |price| price[:trading_period] }).to eq expected_trading_periods
+            expect(prices.map { |price| price[:price] }).to          eq expected_prices
+            expect(prices.map { |price| price[:time] }).to           eq expected_times
           end
         end
       end
 
       context 'when no date parameter is provided' do
-        it "requests the prices for the day before yesterday" do
-          VCR.use_cassette("BEN2201_5min_24-03-2015") do
+        it 'requests the prices for the day before yesterday' do
+          VCR.use_cassette('BEN2201_5min_28-02-2017') do
             Wits::FiveMinutePrices.five_minute_prices('BEN')
           end
         end
       end
 
       it 'accepts known node short codes' do
-        VCR.use_cassette("BEN2201_5min_24-03-2015") do
+        VCR.use_cassette('BEN2201_5min_28-02-2017') do
           Wits::FiveMinutePrices.five_minute_prices('BEN')
         end
       end
 
       it 'accepts lower-cased node codes' do
-        VCR.use_cassette("BEN2201_5min_24-03-2015") do
+        VCR.use_cassette('BEN2201_5min_28-02-2017') do
           Wits::FiveMinutePrices.five_minute_prices('ben')
         end
       end
 
       it 'accepts node codes as symbols' do
-        VCR.use_cassette("BEN2201_5min_24-03-2015", allow_playback_repeats: true) do
+        VCR.use_cassette('BEN2201_5min_28-02-2017', allow_playback_repeats: true) do
           Wits::FiveMinutePrices.five_minute_prices(:ben)
           Wits::FiveMinutePrices.five_minute_prices(:BEN)
           Wits::FiveMinutePrices.five_minute_prices(:BEN2201)
@@ -181,22 +178,22 @@ describe Wits::FiveMinutePrices do
       end
 
       it 'accepts a date String object' do
-        VCR.use_cassette('BEN2201_5min_25-03-2015') do
-          date = '25/03/2015'
+        VCR.use_cassette('BEN2201_5min_28-02-2017') do
+          date = '28/02/2017'
           Wits::FiveMinutePrices.five_minute_prices('ben2201', date)
         end
       end
 
       it 'accepts a Date-like object' do
-        VCR.use_cassette('BEN2201_5min_25-03-2015') do
-          date = Date.parse('25/03/2015')
+        VCR.use_cassette('BEN2201_5min_28-02-2017') do
+          date = Date.parse('28/02/2017')
           Wits::FiveMinutePrices.five_minute_prices('ben2201', date)
         end
       end
 
       it 'accepts a Time-like object' do
-        VCR.use_cassette('BEN2201_5min_25-03-2015') do
-          time = Time.parse('25/03/2015')
+        VCR.use_cassette('BEN2201_5min_28-02-2017') do
+          time = Time.parse('28/02/2017')
           Wits::FiveMinutePrices.five_minute_prices('BEN', time)
         end
       end
@@ -204,22 +201,22 @@ describe Wits::FiveMinutePrices do
 
     describe 'error' do
       it 'Wits::Error::ParsingError is raised for unexpected CSV formats' do
-        response = double('reponse', body: 'a' * 300)
+        response = double('reponse', body: "a,b,c\n" * 300)
         allow(Wits::Client).to receive(:get).and_return(response)
 
-        expect {
+        expect do
           Wits::FiveMinutePrices.five_minute_prices('ben')
-        }.to raise_error(Wits::Error::ParsingError)
+        end.to raise_error(Wits::Error::ParsingError)
       end
 
       it 'Wits::Error::ResourceNotFound is raised when no data is returned', :vcr do
-        expect {
-          Wits::FiveMinutePrices.five_minute_prices('ben', Date.parse('1/1/2000'))
-        }.to raise_error(Wits::Error::ResourceNotFound)
+        expect do
+          Wits::FiveMinutePrices.five_minute_prices('ben', Date.parse('28/02/2015'))
+        end.to raise_error(Wits::Error::ResourceNotFound)
 
-        expect {
-          Wits::FiveMinutePrices.five_minute_prices('ben', Date.parse('1/1/2000'), :average)
-        }.to raise_error(Wits::Error::ResourceNotFound)
+        expect do
+          Wits::FiveMinutePrices.five_minute_prices('ben', Date.parse('28/02/2015'), :average)
+        end.to raise_error(Wits::Error::ResourceNotFound)
       end
 
       errors = %w(
@@ -230,9 +227,9 @@ describe Wits::FiveMinutePrices do
         it "Wits::Error::#{error} is raised on Faraday::#{error} error" do
           allow_any_instance_of(Faraday::Connection).to receive(:get).and_raise(Faraday.const_get(error), 'message')
 
-          expect {
+          expect do
             Wits::FiveMinutePrices.five_minute_prices('ben')
-          }.to raise_error(Wits::Error.const_get(error))
+          end.to raise_error(Wits::Error.const_get(error))
         end
       end
     end
@@ -240,7 +237,7 @@ describe Wits::FiveMinutePrices do
 
   describe '.average_five_minute_prices' do
     before :all do
-      Timecop.freeze(Date.parse('26/03/2015'))
+      Timecop.freeze(Date.parse('28/02/2017'))
     end
 
     after :all do
@@ -270,7 +267,7 @@ describe Wits::FiveMinutePrices do
       prefixes = [
         node.downcase,
         node.downcase.slice(0, 3),
-        name.gsub(' ', '_').downcase
+        name.tr(' ', '_').downcase
       ]
 
       methods = prefixes.map do |method|
@@ -287,7 +284,7 @@ describe Wits::FiveMinutePrices do
       prefixes = [
         node.downcase,
         node.downcase.slice(0, 3),
-        name.gsub(' ', '_').downcase
+        name.tr(' ', '_').downcase
       ]
 
       methods = prefixes.map do |method|
@@ -310,7 +307,7 @@ describe Wits::FiveMinutePrices do
             end
 
             it 'calls .prices with the correct parameters (with date parameter)' do
-              date = Date.parse('1/1/2015')
+              date = Date.parse('28/02/2017')
 
               expect(Wits::FiveMinutePrices).to receive(:five_minute_prices).with(node, date)
 
@@ -323,7 +320,7 @@ describe Wits::FiveMinutePrices do
 
     context 'average_five_minute_prices' do
       before :all do
-        Timecop.freeze(Date.parse('26/03/2015'))
+        Timecop.freeze(Date.parse('28/02/2017'))
       end
 
       after :all do
@@ -334,14 +331,14 @@ describe Wits::FiveMinutePrices do
         methods.each do |method|
           describe ".#{method}" do
             it 'calls .five_minute_prices with the correct parameters (no date parameter)' do
-              expected_date = Date.parse('26/03/2015')
+              expected_date = Date.parse('28/02/2017')
               expect(Wits::FiveMinutePrices).to receive(:five_minute_prices).with(node, expected_date, :average)
 
               Wits::FiveMinutePrices.send(method)
             end
 
             it 'calls .five_minute_prices with the correct parameters (with date parameter)' do
-              date = Date.parse('1/1/2015')
+              date = Date.parse('28/02/2017')
 
               expect(Wits::FiveMinutePrices).to receive(:five_minute_prices).with(node, date, :average)
 
@@ -359,7 +356,7 @@ describe Wits::FiveMinutePrices do
         extend Wits::FiveMinutePrices
       end
 
-      Timecop.freeze(Date.parse('25/03/2015'))
+      Timecop.freeze(Date.parse('28/02/2017'))
     end
 
     after :all do
@@ -367,7 +364,7 @@ describe Wits::FiveMinutePrices do
     end
 
     all_node_methods = expected_node_methods.values.flatten +
-      expected_average_node_methods.values.flatten
+                       expected_average_node_methods.values.flatten
 
     all_node_methods.each do |method|
       it "makes the .#{method} available on the extending Class or Module", :vcr do

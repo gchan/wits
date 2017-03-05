@@ -1,6 +1,8 @@
 Unreleased
 ------
 * Dropping official support for Ruby versions 2.1 and below.
+* Use the new site (currently available on www2.electricityinfo.co.nz)
+* Interim prices is supported in the new site
 
 1.0.2 / 2016-09-23
 ------

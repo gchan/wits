@@ -10,66 +10,20 @@ module Wits
     extend self
     extend Helpers
     extend ConvenienceMethods
+    include PriceCodes
 
     def self.extended(base)
       base.extend Helpers
       base.extend ConvenienceMethods
     end
 
-    def prices(node, date = nz_current_date - 2)
-      node = format_node(node)
-      date = format_date(date)
-
-      request_prices(node, date)
+    def prices(node, date = nz_current_date - 3, type = FINAL)
+      csv = request_prices(node, date, type)
+      parse_csv(csv, type)
     end
 
-    private
-
-    def request_prices(node, date)
-      response = Wits::Client.get_csv do |request|
-        request.url(
-          'comitFta/ftaPage.download',
-          pNode: node,
-          pDate: date
-        )
-      end
-
-      parse_prices_csv(response.body)
-    end
-
-    def parse_prices_csv(csv)
-      csv = CSV.parse(csv)
-
-      price_type, node, date = read_prices_header(csv)
-      prices                 = process_prices(csv, date)
-
-      format_prices(node, date, prices, price_type)
-    rescue StandardError => error
-      raise Wits::Error::ParsingError.new(error)
-    end
-
-    def read_prices_header(csv)
-      header_regexp = %r{(.*) Prices for Node (.{3}\d{4}) on (\d{2}\/\d{2}\/\d{4})}
-
-      header = csv.shift.shift
-      price_type, node, date = header.match(header_regexp).captures
-
-      date = Date.parse date
-
-      csv.shift # discard second header
-
-      [price_type, node, date]
-    end
-
-    def process_prices(csv, date)
-      times = []
-
-      csv.map do |time, trading_period, price|
-        repeated_time = times.include?(time)
-        times << time
-
-        format_price(date, time, trading_period, price, repeated_time)
-      end
+    def interim_prices(node, date = nz_current_date - 1)
+      prices(node, date, INTERIM)
     end
   end
 end

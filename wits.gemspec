@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.name          = 'wits'
   spec.version       = Wits::VERSION
   spec.authors       = ['Gordon Chan']
-  spec.email         = ["developer.gordon+github@gmail.com"]
+  spec.email         = ['developer.gordon+github@gmail.com']
 
   spec.summary       = 'Retrieves electricity data from WITS Free to Air'
   spec.description   = 'A Ruby interface for WITS (Wholesale and

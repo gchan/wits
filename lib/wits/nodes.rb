@@ -25,9 +25,8 @@ module Wits
     # }
     SHORT_CODES = Hash[
       NODES.keys.map { |node| node[0..2].to_sym }
-        .zip(NODES.keys.map(&:to_s))
+                  .zip(NODES.keys.map(&:to_s))
     ].freeze
-
 
     def nodes
       NODES

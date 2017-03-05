@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe Wits::Nodes do
-
   describe 'NODES' do
     it 'is a hash of nodes' do
       nodes = Wits::Nodes::NODES
@@ -28,8 +27,7 @@ describe Wits::Nodes do
     end
   end
 
-
-  describe "SHORT_CODES" do
+  describe 'SHORT_CODES' do
     it 'is a hash of short codes' do
       nodes = Wits::Nodes::SHORT_CODES
 
