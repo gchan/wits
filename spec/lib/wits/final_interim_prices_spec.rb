@@ -11,7 +11,7 @@ describe Wits::FinalInterimPrices do
         disable_live_requests
       end
 
-      let(:date) { Date.today - 4 }
+      let(:date) { Date.today - 5 }
 
       subject(:response) { Wits::FinalInterimPrices.prices('BEN2201', date) }
       subject(:price)    { response[:prices].first }
@@ -24,7 +24,7 @@ describe Wits::FinalInterimPrices do
         expect(response[:node_code]).to       eq 'BEN2201'
         expect(response[:node_short_code]).to eq 'BEN'
         expect(response[:node_name]).to       eq 'Benmore'
-        expect(response[:price_type]).to      match /Interim|Final/
+        expect(response[:price_type]).to      eq 'Final'
         expect(response[:date]).to            eq date
         expect(response[:prices].length).to   be_within(2).of(48)
 
