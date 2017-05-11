@@ -1,5 +1,6 @@
 Unreleased
 ------
+* Change URL from www2.electricityinfo.co.nz to electricityinfo.co.nz
 
 1.1.0 / 2017-03-05
 ------
