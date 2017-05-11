@@ -3,7 +3,7 @@
     {
       "request": {
         "method": "get",
-        "uri": "https://www2.electricityinfo.co.nz/",
+        "uri": "https://electricityinfo.co.nz/",
         "body": {
           "string": ""
         }
