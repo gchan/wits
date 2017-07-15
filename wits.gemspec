@@ -1,4 +1,5 @@
 # coding: utf-8
+
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'wits/version'
@@ -15,7 +16,7 @@ Gem::Specification.new do |spec|
   spec.homepage      = 'https://www.github.com/gchan/wits'
   spec.license       = 'MIT'
 
-  spec.files         = Dir['lib/**/*.rb'] + %w(CHANGELOG.md LICENSE.txt README.md wits.gemspec)
+  spec.files         = Dir['lib/**/*.rb'] + %w[CHANGELOG.md LICENSE.txt README.md wits.gemspec]
   spec.bindir        = 'bin'
   spec.require_paths = ['lib']
   spec.platform      = Gem::Platform::RUBY
@@ -34,7 +35,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'multi_json', '~> 1.12.1'
   spec.add_development_dependency 'timecop', '~> 0.8.1'
   spec.add_development_dependency 'simplecov', '~> 0.14.1'
-  spec.add_development_dependency 'rubocop', '~> 0.48.1'
+  spec.add_development_dependency 'rubocop', '~> 0.49.1'
   spec.add_development_dependency 'coveralls', '~> 0.8.19'
   spec.add_development_dependency 'codeclimate-test-reporter', '~> 1.0.5'
   spec.add_development_dependency 'tins', '~> 1.13.2'
