@@ -25,5 +25,10 @@ module Wits
     def interim_prices(node, date = nz_current_date - 1)
       prices(node, date, INTERIM)
     end
+
+    def forecast_prices(node, date = nz_current_date, type = FORECAST)
+      csv = request_prices(node, date, type)
+      parse_csv(csv, type)
+    end
   end
 end

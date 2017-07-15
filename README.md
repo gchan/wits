@@ -51,9 +51,9 @@ wits officially supports MRI Ruby 2.2+ and the JRuby equivalent. wits may work f
 
 ## Usage
 
-wits can retrieve [Final/Interim Prices](https://electricityinfo.co.nz/comitFta/ftaPage.pricesMain) and [5 Minute Prices](https://electricityinfo.co.nz/comitFta/five_min_prices.main) for a given node and date.
+wits can retrieve [Final/Interim/Forecast Prices](https://electricityinfo.co.nz/help/prices.html), and [5 Minute Prices](https://electricityinfo.co.nz/help/prices.html) for a given node and date.
 
-#### Final/Interim Prices
+#### Final/Interim/Forecast Prices
 Half-hourly final/interim prices can be retrieved in the following ways:
 
 ```ruby
@@ -67,6 +67,11 @@ Wits.interim_prices('ben2201') # Defaults to the day before yesterday
 Wits.interim_prices('BEN', '29/03/2015')
 Wits.interim_prices('ben', Time.parse('29/03/2015 13:37'))
 Wits.interim_prices('BEN2201', Date.parse('29/03/2015'))
+
+Wits.forecast_prices('ben2201') # Defaults to the day before yesterday
+Wits.forecast_prices('BEN', '29/03/2015')
+Wits.forecast_prices('ben', Time.parse('29/03/2015 13:37'))
+Wits.forecast_prices('BEN2201', Date.parse('29/03/2015'))
 ```
 
 If no date-like argument is provided, data for the day before yesterday will be retrieved.
@@ -81,6 +86,10 @@ Wits.ben2201_prices(Time.parse('29/03/2015 13:37'))
 Wits.ben_interim_prices
 Wits.benmore_interim_prices('29/03/2015')
 Wits.ben2201_interim_prices(Time.parse('29/03/2015 13:37'))
+
+Wits.ben_forecast_prices
+Wits.benmore_forecast_prices('29/03/2015')
+Wits.ben2201_forecast_prices(Time.parse('29/03/2015 13:37'))
 ```
 
 For Final prices, there are shorter methods without the `_prices` suffix.

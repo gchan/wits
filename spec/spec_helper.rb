@@ -40,4 +40,5 @@ end
 RSpec.configure do |config|
   config.include RequestHelpers
   config.include TimeParser
+  config.example_status_persistence_file_path = './tmp/failures.txt'
 end

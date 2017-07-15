@@ -109,6 +109,39 @@ describe Wits::FinalInterimPrices do
         end
       end
 
+      context 'forecast prices' do
+        it 'returns price information formatted correctly' do
+          VCR.use_cassette('BEN2201_forecast_15-07-2017') do
+            date     = Date.parse('15/07/2017')
+            response = Wits::FinalInterimPrices.forecast_prices('BEN', date)
+            prices   = response[:prices]
+            price    = prices.first
+
+            expect(response[:node_code]).to       eq 'BEN2201'
+            expect(response[:node_short_code]).to eq 'BEN'
+            expect(response[:node_name]).to       eq 'Benmore'
+            expect(response[:price_type]).to      eq 'Forecast'
+            expect(response[:date]).to            eq date
+            expect(response[:prices].length).to   eq 48
+
+            expected_trading_periods = (1..48).to_a
+            # Extracted from VCR Cassette
+            expected_prices = [110.48, 123.88, 159.79, 153.8, 157.9, 131.41, 155.76, 155.11,
+              155.53, 178.29, 180.55, 181.17, 160.92, 151.59, 152.59, 200.81, 179.01, 126.91,
+              192.62, 200.08, 115.22, 210.86, 201.04, 191.96, 116.97, 116.47, 102.0, 98.34,
+              83.54, 82.08, 55.98, 68.0, 93.73, 93.0, 93.0, 96.87, 96.64, 93.0, 57.95, 53.01,
+              52.58, 57.7, 58.07, 79.92, 98.51, 132.02, 128.4, 122.18]
+            expected_times = (1..48).map do |period|
+              parse_nz_time(Time.parse('15/07/2017')) + 60 * 30 * (period - 1)
+            end
+
+            expect(prices.map { |price| price[:trading_period] }).to eq expected_trading_periods
+            expect(prices.map { |price| price[:price] }).to          eq expected_prices
+            expect(prices.map { |price| price[:time] }).to           eq expected_times
+          end
+        end
+      end
+
       # TODO: We don't have a data sample of a daylight savings day
       # for the new website (next transitions occurs at April 2, 2017)
       # it 'handles daylight savings transitions' do
@@ -252,6 +285,20 @@ describe Wits::FinalInterimPrices do
     end
   ]
 
+  # Forecast Price Methods
+  expected_forecast_node_methods = Hash[
+    Wits::Nodes.nodes.map do |node, name|
+      methods = [
+        node.downcase,
+        node.downcase.slice(0, 3),
+        name.tr(' ', '_').downcase
+      ]
+      forecast_methods = methods.map { |method| "#{method}_forecast_prices".to_sym }
+
+      [node, forecast_methods]
+    end
+  ]
+
   describe 'convenience methods' do
     expected_node_methods.each do |node, methods|
       methods.each do |method|
@@ -292,6 +339,26 @@ describe Wits::FinalInterimPrices do
         end
       end
     end
+
+    expected_forecast_node_methods.each do |node, methods|
+      methods.each do |method|
+        describe ".#{method}" do
+          it 'calls .forecast_prices with the correct parameters (no date parameter)' do
+            expect(Wits::FinalInterimPrices).to receive(:forecast_prices).with(node)
+
+            Wits::FinalInterimPrices.send(method)
+          end
+
+          it 'calls .forecast_prices with the correct parameters (with date parameter)' do
+            date = Date.parse('25/02/2017')
+
+            expect(Wits::FinalInterimPrices).to receive(:forecast_prices).with(node, date)
+
+            Wits::FinalInterimPrices.send(method, date)
+          end
+        end
+      end
+    end
   end
 
   context 'when extended' do
@@ -300,7 +367,7 @@ describe Wits::FinalInterimPrices do
         extend Wits::FinalInterimPrices
       end
 
-      Timecop.freeze(Date.parse('27/02/2017'))
+      Timecop.freeze(Date.parse('13/07/2017'))
     end
 
     after :all do
@@ -319,6 +386,10 @@ describe Wits::FinalInterimPrices do
 
     it 'makes the .interim_prices available on the extending Class or Module', :vcr do
       expect(MyClass.interim_prices('BEN')).to eq Wits::FinalInterimPrices.interim_prices('BEN')
+    end
+
+    it 'makes the .forecast_prices available on the extending Class or Module', :vcr do
+      expect(MyClass.forecast_prices('BEN')).to eq Wits::FinalInterimPrices.forecast_prices('BEN')
     end
   end
 end

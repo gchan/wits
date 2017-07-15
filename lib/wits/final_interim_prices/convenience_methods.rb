@@ -9,6 +9,7 @@ module Wits
           node_methods(node, name)
           node_prices_methods(node, name)
           node_interim_prices_methods(node, name)
+          node_forecast_prices_methods(node, name)
         end
       end
 
@@ -47,6 +48,17 @@ module Wits
         create_interim_prices_method(name.downcase.tr(' ', '_'), node)
       end
 
+      def self.node_forecast_prices_methods(node, name)
+        # def ben2201_forecast_prices
+        create_forecast_method(node.downcase, node)
+
+        # def hay_forecast_prices
+        create_forecast_method(node.downcase[0..2], node)
+
+        # def halfway_bush_forecast_prices
+        create_forecast_method(name.downcase.tr(' ', '_'), node)
+      end
+
       def self.create_prices_method(method_name, node)
         define_method method_name do |*args|
           prices(node, *args)
@@ -56,6 +68,12 @@ module Wits
       def self.create_interim_prices_method(method_prefix, node)
         define_method "#{method_prefix}_interim_prices" do |*args|
           interim_prices(node, *args)
+        end
+      end
+
+      def self.create_forecast_method(method_prefix, node)
+        define_method "#{method_prefix}_forecast_prices" do |*args|
+          forecast_prices(node, *args)
         end
       end
     end
