@@ -1,8 +1,8 @@
-Unreleased
+1.2.0 / 2017-07-15
 ------
 * Add support for forecast prices (PRS)
 
-1.1.1 / 2017-05-011
+1.1.1 / 2017-05-11
 ------
 * Change URL from www2.electricityinfo.co.nz to electricityinfo.co.nz
 * Update runtime and development dependencies
